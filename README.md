@@ -1,6 +1,6 @@
 
 # onelinedraw
-wx game - 一笔画猫猫的破解 (mac平台，android)
+wx game - 一笔画猫猫的研究 (mac平台，android)
 
 
 # c++: findpath
@@ -16,9 +16,13 @@ make
 
 # 脚本执行: shell
 
+首先进入一张地图中，执行:
+
 ./oneline.sh
 
-这个脚本会调用同目录下的oneline.py，注意最后一行
+这个脚本会调用同目录下的oneline.py共计15次，因为一个猫猫有15个地图，这样可以一次性闯关。
+
+注意最后一行
 
 os.system('adb shell input tap 720 1500')
 
