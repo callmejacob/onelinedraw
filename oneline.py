@@ -1,15 +1,19 @@
 # -*- coding: utf-8 -*-
 import os;
+import sys;
 
 from skimage import data, io, filters
 from skimage.filters import rank
 from skimage.morphology import disk
 import numpy as np
 
-os.system("adb shell screencap -p /sdcard/tmp.png");
-os.system("adb pull /sdcard/tmp.png /Users/jacob/PycharmProjects/onelinedraw/test.png");
+root_dir = os.path.dirname(os.path.abspath(__file__))
+temp_png_path = root_dir + "/test.png"
 
-img = data.load('/Users/jacob/PycharmProjects/onelinedraw/test.png', True)
+os.system("adb shell screencap -p /sdcard/tmp.png");
+os.system("adb pull /sdcard/tmp.png " + temp_png_path);
+
+img = data.load(temp_png_path, True)
 
 #img_filter = filters.sobel(img)
 img_filter = rank.gradient(img, disk(5))
@@ -138,7 +142,7 @@ import commands
 
 #params = ' '.join(sys.argv[1:])
 
-main = "./findpath"
+main = root_dir +  "/cpp/findpath"
 # os.path.exists(main)
 #rc, out = commands.getstatusoutput(main + ' 6 6 2 4 1 1 1 5 2 5 5 0' )
 rc, out = commands.getstatusoutput(main + params)
