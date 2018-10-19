@@ -1,7 +1,7 @@
 
 cmake_minimum_required (VERSION 2.8)
 
-project(main)
+project(findpath)
 
-add_executable(main oneline.cpp)
+add_executable(findpath oneline.cpp)
 
